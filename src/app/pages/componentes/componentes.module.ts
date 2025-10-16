@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+
 import { IonicModule } from '@ionic/angular';
 
 import { ComponentesPageRoutingModule } from './componentes-routing.module';
@@ -16,7 +17,8 @@ import {ComponentesModule} from '../../componentes/componentes-module';
     FormsModule,
     IonicModule,
     ComponentesPageRoutingModule,
-    ComponentesModule
+    ComponentesModule,
+    
   ],
   declarations: [ComponentesPage]
 })

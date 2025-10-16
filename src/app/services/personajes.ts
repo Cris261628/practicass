@@ -8,7 +8,6 @@ import { RespuestaBD } from '../interfaces/interfaces';
 export class Personajes {
   constructor(private http: HttpClient) { }
   getDatos() {
-    return this.http.get<RespuestaBD>('https://fakerapi.it/api/v1/users',
-      { headers: { 'x-api-key': 'reqres-free-v1' } });
+    return this.http.get<RespuestaBD>('https://reqres.in/api/users',{headers:{'x-api-key':'reqres-free-v1'}});
   }
 }
