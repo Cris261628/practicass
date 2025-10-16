@@ -1,0 +1,14 @@
+para guardar 
+
+git clone https://github.com/Cris261628/practicass.git (si no esta la carpta )
+git add .
+git commit -m "Descripción de tus cambios"
+git push
+
+
+para Desc
+
+git pull
+
+desvincular mi git de la otra pc 
+git remote remove origin

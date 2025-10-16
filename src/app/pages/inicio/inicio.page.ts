@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Personajes } from 'src/app/services/personajes';
+import { Personajes as PersonajesApi } from '../../interfaces/interfaces';
+import { RespuestaBD } from '../../interfaces/interfaces';
 
 interface Elemento {
   icono: string;
@@ -17,6 +20,9 @@ interface Elemento {
 
 export class InicioPage implements OnInit {
 
+
+  personajesRecientes: PersonajesApi[] = [];
+
   elementos: Elemento[] = [
     { //Primer elemento de la lista
       icono: 'newspaper-outline',
@@ -34,9 +40,14 @@ export class InicioPage implements OnInit {
       ruta: '/componentes'
     }
   ];
-  constructor() { }
+  constructor(private servicioPersonajes: Personajes) { }
 
   ngOnInit() {
+    this.servicioPersonajes.getDatos()
+      .subscribe((resp: RespuestaBD) => {
+        console.log('Personajes', resp)
+        this.personajesRecientes = resp.data;
+      })
   }
 
 }
