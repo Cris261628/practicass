@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button
+    slot="start"
+    defaultHref="/"
+    text="Atras"
+    color="primary">
+  </ion-back-button>
+    <ion-title class="ion-text-capitalize">componentes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button>Activo</ion-button>
+
+  <ion-button [disabled]="true">Inactivo</ion-button>
+
+  <ion-button fill="outline">Sin relleno</ion-button>
+
+  <ion-button>
+    <ion-icon slot="icon-only" name="home"></ion-icon>
+  </ion-button>
+
+  <ion-button expand="block">Block</ion-button>
+
+  <ion-button expand="full">Full</ion-button>
+
+  <ion-button shape="round">Redondo</ion-button>
+
+  <ion-button color="secondary">Color Secundario</ion-button>
+
+  <!-- 5 Componentes -->
+
+  <ion-content class="ion-padding">
+  <ion-accordion-group>
+    <ion-accordion value="info">
+      <ion-item slot="header"><ion-label>Ver detalles</ion-label></ion-item>
+      <div slot="content" class="ion-padding">Contenido desplegable</div>
+    </ion-accordion>
+  </ion-accordion-group>
+
+  <ion-progress-bar value="0.5" color="primary" class="ion-margin-vertical"></ion-progress-bar>
+
+  <ion-datetime presentation="date" locale="es-MX"></ion-datetime>
+
+  <ion-chip color="primary" outline>
+  <ion-icon name="star" slot="start"></ion-icon>
+  <ion-label>Favorito</ion-label>
+</ion-chip>
+
+<ion-button>
+  Mensajes
+  <ion-badge color="danger">3</ion-badge>
+</ion-button>
+</ion-content>
+
+</ion-content>
