@@ -56,9 +56,12 @@ export class InicioPage implements OnInit {
   }
 
   ngOnInit() {
-    this.servicioPersonajes.getDatos().subscribe((data: Personaje[]) => {
-      console.log('Personajes desde Firebase', data);
-      this.personajesRecientes = data;
+    //this.servicioPersonajes.getDatos().subscribe((data: Personaje[]) => {
+    //  console.log('Personajes desde Firebase', data);
+    //  this.personajesRecientes = data;
+    //});
+    this.servicioPersonajes.getPersonajes().subscribe((respuesta)=>{
+      console.log("personajes",respuesta)
     });
   }
 }
