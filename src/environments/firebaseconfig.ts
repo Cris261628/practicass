@@ -1,9 +1,11 @@
+
+
 export const firebaseConfig = {
-  apiKey: "AIzaSyBFlOtXuobGSVovarEXm8eUMYF7I6jhEIg",
-  authDomain: "vidas-595f4.firebaseapp.com",
-  projectId: "vidas-595f4",
-  storageBucket: "vidas-595f4.firebasestorage.app",
-  messagingSenderId: "557805138953",
-  appId: "1:557805138953:web:ecc5c1e47c3a06e78cf4d8",
-  measurementId: "G-LHBG7S9EQR"
+  apiKey: "AIzaSyCdEX9M-hFv4sy_4fJh2Si5roa_Ou93ErE",
+  authDomain: "trabajo26-c282c.firebaseapp.com",
+  databaseURL: "https://trabajo26-c282c-default-rtdb.firebaseio.com/",
+  projectId: "trabajo26-c282c",
+  storageBucket: "trabajo26-c282c.firebasestorage.app",
+  messagingSenderId: "10483374531",
+  appId: "1:10483374531:web:5f73f36e569b73c5aec576"
 };

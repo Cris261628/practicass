@@ -31,3 +31,19 @@ export interface Personaje{
   avatar: string;
   text?: string; 
 }*/
+
+
+/*
+
+export interface Personajes{
+  Apellido: string;
+  Armas: number;
+  Daño: number;
+  Descripcion: string;
+  Imagen: string;
+  Nombre: string;
+  Salud: number;
+  Velocidad: number;
+}
+
+*/
