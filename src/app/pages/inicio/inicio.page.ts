@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { personajesFirebase } from '../../interfaces/interfaces';
 
 import { Personajes as PersonajesService } from 'src/app/services/personajes';
-import { Personaje } from '../../interfaces/interfaces'; 
+import { Personaje } from '../../interfaces/interfaces';
 
 import { ModalController } from '@ionic/angular';
 import { DetalleComponent } from '../../componentes/detalle/detalle.component';
@@ -19,6 +20,9 @@ interface Elemento {
   styleUrls: ['./inicio.page.scss'],
 })
 export class InicioPage implements OnInit {
+
+  personajesRecientes: personajesFirebase[] = [];
+
 
   elementos: Elemento[] = [
     {
@@ -38,18 +42,18 @@ export class InicioPage implements OnInit {
     }
   ];
 
-  personajesRecientes: Personaje[] = []; 
+
 
   constructor(
     private servicioPersonajes: PersonajesService,
     private modalCtrl: ModalController
-  ) {}
+  ) { }
 
-  
-  async verDetalle(index: number) {
+
+  async verDetalle(id: string) {
     const modal = await this.modalCtrl.create({
       component: DetalleComponent,
-      componentProps: { id: index } 
+      componentProps: { id: id }
     });
 
     await modal.present();
@@ -62,12 +66,16 @@ export class InicioPage implements OnInit {
       this.personajesRecientes = data;
     });*/
 
-    this.servicioPersonajes.getPersonajes().subscribe((respuesta) =>{
+    this.servicioPersonajes.getPersonajes().subscribe((respuesta) => {
       console.log("Personajes", respuesta)
+      respuesta.forEach(personaje => {
+        //Almacenamos cada personaje en el arreglo
+        this.personajesRecientes.push(<personajesFirebase>personaje);
+      });
     });
   }
 
- 
+
 }
 
 /*import { Component, OnInit } from '@angular/core';

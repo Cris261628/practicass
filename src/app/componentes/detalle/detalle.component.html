@@ -1,15 +1,15 @@
-<ion-content *ngIf="personaje">
+<ion-content *ngIf="detallePersonaje">
   <!-- Encabezado -->
   <div class="encabezado">
-    <img [src]="personaje.avatar" class="fondo" *ngIf="personaje.avatar" />
+    <img [src]="detallePersonaje.imagen" class="fondo" *ngIf="detallePersonaje.imagen" />
 
     <div class="nombre-superior">
-      {{ personaje.first_name }} {{ personaje.last_name }}
+      {{ detallePersonaje.nombre }} {{ detallePersonaje.apellido }}
     </div>
 
     <!-- Imagen avatar -->
     <div class="perfil-inferior">
-      <img [src]="personaje.avatar" class="poster" *ngIf="personaje.avatar" />
+      <img [src]="detallePersonaje.imagen" class="poster" *ngIf="detallePersonaje.imagen" />
 
       <div class="armas">
         <span class="armas-label">Armas:</span>
@@ -22,10 +22,10 @@
   <!-- Descripción -->
   <ion-card>
     <ion-card-header>
-      <ion-card-subtitle>EMAIL</ion-card-subtitle>
+      <ion-card-subtitle>descripcion</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      <p>{{ personaje.email }}</p>
+      <p>{{ detallePersonaje.descripcion }}</p>
     </ion-card-content>
   </ion-card>
 
@@ -67,6 +67,7 @@
     </ion-toolbar>
   </ion-footer>
 </ion-content>
+
 
 <!--<ion-content *ngIf="personaje">-->
   <!-- Encabezado -->

@@ -8,13 +8,14 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let personaje of personajesRecientes; let i = index" (click)="verDetalle(i)">
-    <img [src]="personaje.avatar" style="height: 30vh; width: 60vh" />
-    <ion-card-header>
-      <ion-card-title>{{ personaje.first_name }}</ion-card-title>
-      <ion-card-subtitle>{{ personaje.last_name }}</ion-card-subtitle>
-    </ion-card-header>
-  </ion-card>
+  <ion-card (click)="verDetalle(personaje.id)"
+*ngFor="let personaje of personajesRecientes">
+<img [src]="personaje.imagen" style="height: 30vh; width: 60vh" >
+<ion-card-header>
+<ion-card-title>{{personaje.nombre}}</ion-card-title>
+<ion-card-subtitle>{{personaje.apellido}}</ion-card-subtitle>
+</ion-card-header>
+</ion-card>
 </ion-content>
 
 
