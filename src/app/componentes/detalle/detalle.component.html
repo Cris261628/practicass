@@ -1,61 +1,95 @@
 <ion-content *ngIf="detallePersonaje">
-  <!-- Encabezado -->
-  <div class="encabezado">
-    <img [src]="detallePersonaje.imagen" class="fondo" *ngIf="detallePersonaje.imagen" />
+  <section class="encabezado">
+    <img
+      *ngIf="detallePersonaje.imagen"
+      [src]="detallePersonaje.imagen"
+      [alt]="getAltText(detallePersonaje)"
+      class="fondo"
+      loading="lazy"
+    />
 
     <div class="nombre-superior">
       {{ detallePersonaje.nombre }} {{ detallePersonaje.apellido }}
     </div>
 
-    <!-- Imagen avatar -->
     <div class="perfil-inferior">
-      <img [src]="detallePersonaje.imagen" class="poster" *ngIf="detallePersonaje.imagen" />
+      <img
+        *ngIf="detallePersonaje.imagen"
+        [src]="detallePersonaje.imagen"
+        [alt]="getAltText(detallePersonaje)"
+        class="poster"
+        loading="lazy"
+      />
 
       <div class="armas">
         <span class="armas-label">Armas:</span>
-        <img class="icono" alt="Bomba" src="../../../assets/img/bomba.png" />
+        <img
+          class="icono"
+          src="assets/img/bomba.png"
+          alt="Icono de bomba"
+          loading="lazy"
+        />
         <ion-note color="primary">x10</ion-note>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Descripción -->
-  <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>descripcion</ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>
-      <p>{{ detallePersonaje.descripcion }}</p>
-    </ion-card-content>
-  </ion-card>
+  <article>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Descripción</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <p>{{ detallePersonaje.descripcion }}</p>
+      </ion-card-content>
+    </ion-card>
+  </article>
 
-  <!-- Estadísticas -->
-  <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>ESTADÍSTICAS</ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-list>
-        <ion-item>
-          <img slot="start" class="icono" alt="Salud" src="../../../assets/img/heart.png" />
-          <ion-label>Salud</ion-label>
-          <ion-note slot="end" color="primary">5.2</ion-note>
-        </ion-item>
-        <ion-item>
-          <img slot="start" class="icono" alt="Daño" src="../../../assets/img/bomba.png" />
-          <ion-label>Daño</ion-label>
-          <ion-note slot="end" color="warning">3.2</ion-note>
-        </ion-item>
-        <ion-item>
-          <img slot="start" class="icono" alt="Velocidad" src="../../../assets/img/ejecutar.png" />
-          <ion-label>Velocidad</ion-label>
-          <ion-note slot="end" color="tertiary">1.00</ion-note>
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
+  <section>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Estadísticas</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <img
+              slot="start"
+              class="icono"
+              src="assets/img/heart.png"
+              alt="Icono de salud"
+              loading="lazy"
+            />
+            <ion-label>Salud</ion-label>
+            <ion-note slot="end" color="primary">5.2</ion-note>
+          </ion-item>
+          <ion-item>
+            <img
+              slot="start"
+              class="icono"
+              src="assets/img/bomba.png"
+              alt="Icono de daño"
+              loading="lazy"
+            />
+            <ion-label>Daño</ion-label>
+            <ion-note slot="end" color="warning">3.2</ion-note>
+          </ion-item>
+          <ion-item>
+            <img
+              slot="start"
+              class="icono"
+              src="assets/img/ejecutar.png"
+              alt="Icono de velocidad"
+              loading="lazy"
+            />
+            <ion-label>Velocidad</ion-label>
+            <ion-note slot="end" color="tertiary">1.00</ion-note>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </section>
 
-  <!-- Botón regresar -->
   <ion-footer no-border>
     <ion-toolbar>
       <ion-buttons slot="start">
@@ -67,74 +101,3 @@
     </ion-toolbar>
   </ion-footer>
 </ion-content>
-
-
-<!--<ion-content *ngIf="personaje">-->
-  <!-- Encabezado -->
-  <!--<div class="encabezado">
-    <img [src]="personaje.avatar" class="fondo" *ngIf="personaje.avatar">
-
-    <div class="nombre-superior">
-      {{ personaje.first_name }}
-    </div>-->
-
-    <!-- Imagen avatar -->
-    <!--<div class="perfil-inferior">
-      <img [src]="personaje.avatar" class="poster" *ngIf="personaje.avatar">
-
-      <div class="armas">
-        <span class="armas-label">Armas:</span>
-        <img class="icono" alt="Bomba" src="../../../assets/img/bomba.png">
-        <ion-note color="primary">x10</ion-note>
-      </div>
-    </div>
-  </div> -->
-
-  <!-- Descripción -->
-  <!--<ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>DESCRIPCIÓN</ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>
-      <p>{{ personaje.text }}</p>
-    </ion-card-content>
-  </ion-card> -->
-
-  <!-- Estadísticas -->
-  <!--<ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>ESTADÍSTICAS</ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-list>
-        <ion-item>
-          <img slot="start" class="icono" alt="Salud" src="../../../assets/img/heart.png">
-          <ion-label>Salud</ion-label>
-          <ion-note slot="end" color="primary">5.2</ion-note>
-        </ion-item>
-        <ion-item>
-          <img slot="start" class="icono" alt="Daño" src="../../../assets/img/bomba.png">
-          <ion-label>Daño</ion-label>
-          <ion-note slot="end" color="warning">3.2</ion-note>
-        </ion-item>
-        <ion-item>
-          <img slot="start" class="icono" alt="Velocidad" src="../../../assets/img/ejecutar.png">
-          <ion-label>Velocidad</ion-label>
-          <ion-note slot="end" color="tertiary">1.00</ion-note>
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-  </ion-card>-->
-
-  <!-- Botón regresar -->
-  <!--<ion-footer no-border>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-button (click)="regresar()">
-          <ion-icon slot="start" name="arrow-round-back"></ion-icon>
-          <ion-label>REGRESAR</ion-label>
-        </ion-button>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-footer>
-</ion-content>-->

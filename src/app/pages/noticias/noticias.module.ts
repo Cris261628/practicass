@@ -10,6 +10,7 @@ import { NoticiasPage } from './noticias.page';
 
 import { ComponentesModule } from 'src/app/componentes/componentes-module';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -20,4 +21,4 @@ import { ComponentesModule } from 'src/app/componentes/componentes-module';
   ],
   declarations: [NoticiasPage]
 })
-export class NoticiasPageModule {}
+export class NoticiasPageModule { }

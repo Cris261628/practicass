@@ -10,19 +10,15 @@ const routes: Routes = [
   },
   {
     path: 'inicio',
-    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
-  },
-  {
-    path: 'componentes',
-    loadChildren: () => import('./pages/componentes/componentes.module').then( m => m.ComponentesPageModule)
+    loadChildren: () => import('./pages/inicio/inicio.module').then(m => m.InicioPageModule)
   },
   {
     path: 'nosotros',
-    loadChildren: () => import('./pages/nosotros/nosotros.module').then( m => m.NosotrosPageModule)
+    loadChildren: () => import('./pages/nosotros/nosotros.module').then(m => m.NosotrosPageModule)
   },
   {
     path: 'noticias',
-    loadChildren: () => import('./pages/noticias/noticias.module').then( m => m.NoticiasPageModule)
+    loadChildren: () => import('./pages/noticias/noticias.module').then(m => m.NoticiasPageModule)
   },
   { path: 'detalle/:id', component: DetalleComponent }
 

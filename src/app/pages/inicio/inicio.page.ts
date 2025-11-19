@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { IonicModule, ModalController } from '@ionic/angular';
 import { personajesFirebase } from '../../interfaces/interfaces';
-
 import { Personajes as PersonajesService } from 'src/app/services/personajes';
-import { Personaje } from '../../interfaces/interfaces';
-
-import { ModalController } from '@ionic/angular';
 import { DetalleComponent } from '../../componentes/detalle/detalle.component';
 
 interface Elemento {
@@ -14,134 +12,43 @@ interface Elemento {
 }
 
 @Component({
-  standalone: false,
+  standalone: true,
   selector: 'app-inicio',
   templateUrl: './inicio.page.html',
   styleUrls: ['./inicio.page.scss'],
+  imports: [CommonModule, IonicModule]
 })
 export class InicioPage implements OnInit {
 
   personajesRecientes: personajesFirebase[] = [];
 
-
   elementos: Elemento[] = [
-    {
-      icono: 'newspaper-outline',
-      nombre: 'Noticias',
-      ruta: '/noticias'
-    },
-    {
-      icono: 'construct-outline',
-      nombre: 'Componentes',
-      ruta: '/componentes'
-    },
-    {
-      icono: 'people-outline',
-      nombre: 'Nosotros',
-      ruta: '/nosotros'
-    }
+    { icono: 'newspaper-outline', nombre: 'Noticias', ruta: '/noticias' },
+    { icono: 'construct-outline', nombre: 'Componentes', ruta: '/componentes' },
+    { icono: 'people-outline', nombre: 'Nosotros', ruta: '/nosotros' }
   ];
-
-
 
   constructor(
     private servicioPersonajes: PersonajesService,
     private modalCtrl: ModalController
   ) { }
 
+  ngOnInit(): void {
+    this.servicioPersonajes.getPersonajes().subscribe({
+      next: (respuesta) => {
+        this.personajesRecientes = respuesta as personajesFirebase[];
+      },
+      error: (err) => {
+        console.error('Error al cargar personajes:', err);
+      }
+    });
+  }
 
-  async verDetalle(id: string) {
+  async verDetalle(id: string): Promise<void> {
     const modal = await this.modalCtrl.create({
       component: DetalleComponent,
-      componentProps: { id: id }
+      componentProps: { id }
     });
-
     await modal.present();
   }
-
-  ngOnInit() {
-    /*
-    this.servicioPersonajes.getDatos().subscribe((data: Personaje[]) => {
-      console.log('Personajes desde Firebase', data);
-      this.personajesRecientes = data;
-    });*/
-
-    this.servicioPersonajes.getPersonajes().subscribe((respuesta) => {
-      console.log("Personajes", respuesta)
-      respuesta.forEach(personaje => {
-        //Almacenamos cada personaje en el arreglo
-        this.personajesRecientes.push(<personajesFirebase>personaje);
-      });
-    });
-  }
-
-
 }
-
-/*import { Component, OnInit } from '@angular/core';
-
-import { Personajes as PersonajesService } from 'src/app/services/personajes';
-
-import { Personajes as PersonajesApi } from '../../interfaces/interfaces';
-import { RespuestaBD } from '../../interfaces/interfaces';  
-//
-import { ModalController } from '@ionic/angular';
-import { DetalleComponent } from '../../componentes/detalle/detalle.component';
-
-interface Elemento{
-  icono: string;
-  nombre: string;
-  ruta: string;
-}
-
-@Component({
-  standalone: false, //standalone: false,
-  selector: 'app-inicio',
-  templateUrl: './inicio.page.html',
-  styleUrls: ['./inicio.page.scss'],
-})
-export class InicioPage implements OnInit {
-
-  elementos: Elemento[]= [
-    {
-      icono: 'newspaper-outline',
-      nombre: 'Noticias',
-      ruta: '/noticias'
-    },
-    {
-      icono: 'construct-outline',
-      nombre: 'Componenetes',
-      ruta: '/componentes'
-    },
-    {
-      icono: 'people-outline',
-      nombre: 'Nosotros',
-      ruta: '/nosotros'
-    }
-  ];
-
-  personajesRecientes: PersonajesApi[]= [];
-
-  constructor(private servicioPersonajes: PersonajesService,
-    private modalCtrl: ModalController
-  ) { }
-
-  async verDetalle(id: number){
-    const modal = await this.modalCtrl.create({
-      component:DetalleComponent,
-      componentProps:{id}
-    });
-
-    modal.present();
-  }
-
-
-  ngOnInit() {
-    this.servicioPersonajes.getDatos()
-    .subscribe((resp: RespuestaBD)=>{
-      console.log('Personajes', resp);
-      this.personajesRecientes=resp.data;
-    });
-  }
-
-}*/

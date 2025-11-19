@@ -1,0 +1,17 @@
+.personaje-card {
+    margin: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+
+    &:hover {
+        transform: scale(1.02);
+    }
+}
+
+.personaje-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 1;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}

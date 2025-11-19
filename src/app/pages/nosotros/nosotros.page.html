@@ -1,15 +1,38 @@
 <ion-header>
   <ion-toolbar>
-    <ion-back-button
-    slot="start"
-    defaultHref="/"
-    text="Atras"
-    color="primary">
-  </ion-back-button>
-    <ion-title class="ion-text-capitalize">nosotros</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="/"
+        text="Atrás"
+        color="primary"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-capitalize">Nosotros</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>¿Quiénes somos?</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Somos un equipo apasionado por la tecnología, el desarrollo web y las soluciones móviles.
+    </ion-card-content>
+  </ion-card>
 
+  <ion-list>
+    <ion-item>
+      <ion-icon slot="start" name="person-circle-outline"></ion-icon>
+      <ion-label>ESCANOR26</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="code-slash-outline"></ion-icon>
+      <ion-label>Angular · Ionic · TypeScript</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="flame-outline"></ion-icon>
+      <ion-label>Optimización, precisión y código afilado</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
